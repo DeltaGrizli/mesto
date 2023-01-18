@@ -4,7 +4,7 @@
     border: none;
     border-bottom: 1px solid rgba(0, 0, 0, 0.2);
     width: 358px;
-    font-family: 'Inter';
+    font-family: "Inter", Arial, sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 14px;
@@ -21,6 +21,6 @@
     }
 
     .form__input:nth-last-of-type(1) {
-        margin: 0 0 48px 0;
+        margin: 0 0 45px 0;
     }
 }

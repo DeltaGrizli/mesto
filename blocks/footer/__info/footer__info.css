@@ -7,3 +7,10 @@
     line-height: 22px;
     text-align: left;
 }
+
+@media screen and (max-width: 650px) {
+    .footer__info {
+        font-size: 14px;
+        line-height: 17px;
+    }
+}
