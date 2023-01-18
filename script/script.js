@@ -5,8 +5,8 @@ let profile = document.querySelector('.profile'),
     profileSubtitle = profile.querySelector('.profile__subtitle'),
     popupClose = popup.querySelector('.popup__close'),
     popupForm = popup.querySelector('.form'),
-    popupName = popup.querySelector('.popup__input_format_title'),
-    popupProfession = popup.querySelector('.popup__input_format_subtitle');
+    popupName = popup.querySelector('.form__input_format_title'),
+    popupProfession = popup.querySelector('.form__input_format_subtitle');
 
 function openPopup() {
     inputValue();
