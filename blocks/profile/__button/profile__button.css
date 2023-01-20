@@ -16,8 +16,11 @@
 
 @media screen and (max-width: 650px) {
     .profile__button {
+        position: absolute;
+        top: 8px;
+        right: 28px;
         width: 18px;
         height: 18px;
-        margin-left: 10px;
+        margin: 0;
     }
 }
