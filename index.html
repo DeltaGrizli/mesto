@@ -23,64 +23,54 @@
       <button class="profile__add-button" type="button"></button>
     </section>
     <section class="elements">
-      <div class="elements__item">
-        <img class="elements__image" src="./images/kirill-pershin-1088404-unsplash.jpg" alt="Карачаевск">
-        <div class="elements__container">
-          <h2 class="elements__title">Карачаевск</h2>
-          <button type="button" class="elements__like"></button>
-        </div>
-      </div>
-      <div class="elements__item">
-        <img class="elements__image" src="./images/kirill-pershin-1404681-unsplash.jpg" alt="Гора Эльбрус">
-        <div class="elements__container">
-          <h2 class="elements__title">Гора Эльбрус</h2>
-          <button type="button" class="elements__like"></button>
-        </div>
-      </div>
-      <div class="elements__item">
-        <img class="elements__image" src="./images/kirill-pershin-1556355-unsplash.jpg" alt="Домбай">
-        <div class="elements__container">
-          <h2 class="elements__title">Домбай</h2>
-          <button type="button" class="elements__like"></button>
-        </div>
-      </div>
-      <div class="elements__item">
-        <img class="elements__image" src="./images/kirill-pershin-1404681-unsplash.jpg" alt="Гора Эльбрус">
-        <div class="elements__container">
-          <h2 class="elements__title">Гора Эльбрус</h2>
-          <button type="button" class="elements__like"></button>
-        </div>
-      </div>
-      <div class="elements__item">
-        <img class="elements__image" src="./images/kirill-pershin-1556355-unsplash.jpg" alt="Домбай">
-        <div class="elements__container">
-          <p class="elements__title">Домбай</p>
-          <button type="button" class="elements__like"></button>
-        </div>
-      </div>
-      <div class="elements__item">
-        <img class="elements__image" src="./images/kirill-pershin-1088404-unsplash.jpg" alt="Карачаево-Черкессия">
-        <div class="elements__container">
-          <h2 class="elements__title">Карачаево-Черкессия</h2>
-          <button type="button" class="elements__like"></button>
-        </div>
-      </div>
     </section>
   </main>
   <footer class="footer">
     <p class="footer__info">&copy;&nbsp;2023&nbsp;Mesto&nbsp;Russia</p>
   </footer>
-  <div class="popup">
+  <div class="popup" id="editProfile">
     <div class="popup__container">
       <button type="button" class="popup__close"></button>
       <p class="popup__title">Редактировать профиль</p>
       <form name="popup__form" class="form">
-        <input required type="text" name="title" placeholder="Имя" value="" class="form__input form__input_format_title">
-        <input required type="text" name="subtitle" placeholder="О себе" value="" class="form__input form__input_format_subtitle">
+        <input required type="text" name="title" placeholder="Имя" value="" class="form__input form__input_format_title"
+          id="editProfileTitle">
+        <input required type="text" name="subtitle" placeholder="О себе" value=""
+          class="form__input form__input_format_subtitle" id="editProfileSubtitle">
         <button type="submit" aria-label="Сохранить" class="form__save">Сохранить</button>
       </form>
     </div>
   </div>
+  <div class="popup" id="edit">
+    <div class="popup__container">
+      <button type="button" class="popup__close"></button>
+      <p class="popup__title">Новое место</p>
+      <form name="popup__form" class="form">
+        <input required type="text" name="title" placeholder="Имя" value="" class="form__input form__input_format_title"
+          id="editTitle">
+        <input required type="text" name="subtitle" placeholder="Ссылка на картинку" value=""
+          class="form__input form__input_format_subtitle" id="editSubtitle">
+        <button type="submit" aria-label="Создать" class="form__save">Создать</button>
+      </form>
+    </div>
+  </div>
+  <div class="popup popup_backblack" id="photoImage">
+    <div class="popup__container popup__container_image">
+      <img src=" " class="popup__photo">
+      <p class="popup__name"></p>
+      <button type="button" aria-label="" class="popup__close"></button>
+    </div>
+  </div>
+  <template id="template">
+    <div class="elements__item">
+      <button type="button" class="elements__trash"></button>
+      <img class="elements__image" src=" ">
+      <div class="elements__container">
+        <h2 class="elements__title"></h2>
+        <button type="button" class="elements__like"></button>
+      </div>
+    </div>
+  </template>
   <script src="./script/script.js"></script>
 </body>
 
