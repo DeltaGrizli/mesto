@@ -24,36 +24,12 @@ const
     popupImage = photo.querySelector('.popup__photo'),
     popupCloseButtonPhoto = photoImage.querySelector('.popup__close'),
 
-
+    
     elementsSection = document.querySelector('.elements');
-const initialCards = [
-    {
-        name: 'Архыз',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
-    },
-    {
-        name: 'Челябинская область',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
-    },
-    {
-        name: 'Иваново',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
-    },
-    {
-        name: 'Камчатка',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
-    },
-    {
-        name: 'Холмогорский район',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-    },
-    {
-        name: 'Байкал',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-    }
-];
 
-const elementsTemplate = document.querySelector('#template').content;
+
+const elementsTemplate = document.querySelector('#template').content,
+item = elementsTemplate.querySelector('.elements__item');
 
 initialCards.forEach(function (item) {
     appendCard(elementsSection, addNewCard(item.name, item.link));
@@ -65,7 +41,7 @@ function appendCard(elementsSection, name) {
 
 
 function addNewCard(name, image) {
-    const elementsItem = elementsTemplate.querySelector('.elements__item').cloneNode(true);
+    elementsItem = item.cloneNode(true);
     const elementsImage = elementsItem.querySelector('.elements__image');
     elementsItem.querySelector('.elements__title').textContent = name;
     elementsImage.src = image;
@@ -82,6 +58,8 @@ function addNewCard(name, image) {
 function openPhoto(name, image) {
     popupImage.src = image;
     popupPhotoName.textContent = name;
+    popupImage.alt = name;
+
 }
 
 function openPopup(popup) {
