@@ -71,14 +71,14 @@ function closePopup(popup) {
 }
 
 
-function handleFormSubmit(event) {
+function submitEditProfileForm(event) { 
     event.preventDefault();
     profileName.textContent = editProfileTitle.value;
     profileProfession.textContent = editProfileSubtitle.value;
     closePopup(popupEditProfile);
 }
 
-function handleFormEdit(event) {
+function submitEditForm(event) {
     event.preventDefault();
     elementsSection.prepend(addNewCard(editTitle.value, editSubtitle.value));
     closePopup(popupEdit);
@@ -119,5 +119,5 @@ popupCloseButtonPhoto.addEventListener('click', function () {
     closePopup(photoImage)
 });
 
-formEditProfile.addEventListener('submit', handleFormSubmit);
-popupForm.addEventListener('submit', handleFormEdit);
+formEditProfile.addEventListener('submit', submitEditProfileForm);
+popupForm.addEventListener('submit', submitEditForm);
