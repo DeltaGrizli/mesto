@@ -1,5 +1,5 @@
 .form__input {
-
+    margin: 0;
     padding: 0 0 13px 0;
     border: none;
     border-bottom: 1px solid rgba(0, 0, 0, 0.2);
@@ -17,6 +17,6 @@
     }
 
     .form__input:nth-last-of-type(1) {
-        margin: 0 0 45px 0;
+        margin: 0 0 2px 0;
     }
 }

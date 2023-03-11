@@ -35,3 +35,11 @@
 @import url(../blocks/popup/_backblack/popup_backblack.css);
 @import url(../blocks/popup/__photo/popup__photo.css);
 @import url(../blocks/popup/__name/popup__name.css);
+@import url(../blocks/editSubtitle-error.css);
+@import url(../blocks/editTitle-error.css);
+@import url(../blocks/subtitle-error.css);
+@import url(../blocks/title-error.css);
+@import url(../blocks/form/__input/form__input-error.css);
+@import url(../blocks/form/__input/_active/form__input-error_active.css);
+@import url(../blocks/form/__save/_inactive/form__save_inactive.css);
+@import url(../blocks/form/__section/form__section.css);

@@ -24,12 +24,12 @@ const
     popupImage = photo.querySelector('.popup__photo'),
     buttonCloseImagePopup = photoImage.querySelector('.popup__close'),
 
-    
+
     elementsSection = document.querySelector('.elements');
 
 
 const elementsTemplate = document.querySelector('#template').content,
-item = elementsTemplate.querySelector('.elements__item');
+    item = elementsTemplate.querySelector('.elements__item');
 
 initialCards.forEach(function (item) {
     appendCard(elementsSection, addNewCard(item.name, item.link));
@@ -38,7 +38,7 @@ initialCards.forEach(function (item) {
 function appendCard(elementsSection, name) {
     elementsSection.append(name);
 }
-
+edit
 
 function addNewCard(name, image) {
     elementsItem = item.cloneNode(true);
@@ -64,14 +64,31 @@ function openPhoto(name, image) {
 
 function openPopup(popup) {
     popup.classList.add('popup_opened');
+    document.addEventListener('keydown', closePopupByEsc);
+    document.addEventListener('mousedown', closePopupByClick);
 }
 
 function closePopup(popup) {
     popup.classList.remove('popup_opened');
+    document.removeEventListener('keydown', closePopupByEsc);
+    document.removeEventListener('mousedown', closePopupByClick);
+    console.log(popup.classList);
 }
 
+function closePopupByEsc(evt) {
+    if (evt.key === 'Escape') {
+        const openedPopup = document.querySelector('.popup_opened')
+        closePopup(openedPopup)
+    }
+};
 
-function submitEditProfileForm(event) { 
+function closePopupByClick(evt) {
+    if (evt.target.classList.contains('popup')) {
+        closePopup(evt.target);
+    }
+};
+
+function submitEditProfileForm(event) {
     event.preventDefault();
     profileName.textContent = editProfileTitle.value;
     profileProfession.textContent = editProfileSubtitle.value;
@@ -83,6 +100,7 @@ function submitAddCardForm(event) {
     elementsSection.prepend(addNewCard(editTitle.value, editSubtitle.value));
     closePopup(popupEdit);
     formAddCard.reset();
+    blockButtonOpened(buttonElement, dataInput.inactiveButtonClass);
 }
 
 function like(event) {
@@ -91,9 +109,6 @@ function like(event) {
 
 function deleteTrash(event) {
     const trash = event.target.closest('.elements__trash');
-    if (!trash) {
-        return
-    }
     trash.closest('.elements__item').remove();
 }
 
