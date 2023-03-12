@@ -28,11 +28,10 @@ const
     cardsSection = document.querySelector('.elements');
 
 
-const cardsTemplate = document.querySelector('#template').content,
-    item = cardsTemplate.querySelector('.elements__item');
+    const cardsTemplate = document.querySelector('#template').content.querySelector('.elements__item'); 
 
-initialCards.forEach(function (item) {
-    appendCard(cardsSection, createCard(item.name, item.link));
+initialCards.forEach(function (cardsTemplate) {
+    appendCard(cardsSection, createCard(cardsTemplate.name, cardsTemplate.link));
 });
 
 function appendCard(cardsSection, name) {
@@ -40,7 +39,7 @@ function appendCard(cardsSection, name) {
 }
 
 function createCard(name, image) {
-    const card = item.cloneNode(true);
+    const card = cardsTemplate.cloneNode(true);
     const elementsImage = card.querySelector('.elements__image');
     card.querySelector('.elements__title').textContent = name;
     elementsImage.src = image;
@@ -94,11 +93,16 @@ function handleProfileFormSubmit(event) {
 
 function handleCardFormSubmit(event) {
     event.preventDefault();
+    const buttonElement = event.currentTarget.getElementsByClassName('form__save')[0];
     cardsSection.prepend(createCard(titleEdit.value, subtitleEdit.value));
     closePopup(popupEdit);
     formAddCard.reset();
     disableSubmitButton(buttonElement, validationConfig.inactiveButtonClass);
 }
+
+const buttonSubmitCardForm = document.querySelectorAll('.form__save').forEach(element => {
+    disableSubmitButton(element, validationConfig.inactiveButtonClass)
+});
 
 function handleLikeClick(event) {
     event.target.classList.toggle('elements__like_active');
@@ -130,6 +134,11 @@ buttonCloseAddCardPopup.addEventListener('click', function () {
 buttonCloseImagePopup.addEventListener('click', function () {
     closePopup(photoImage)
 });
-
+ 
 formEditProfile.addEventListener('submit', handleProfileFormSubmit);
 formAddCard.addEventListener('submit', handleCardFormSubmit);
+const formElem = document.querySelectorAll('.form').forEach((formElement) => {
+     formElement.addEventListener('submit', (evt) => {
+    evt.preventDefault();
+})
+  });

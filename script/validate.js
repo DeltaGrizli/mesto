@@ -43,10 +43,6 @@ const setEventListeners = (formElem, inputSelector, submitButtonSelector,
 const enableValidation = (validationConfig) => {
   const formList = Array.from(document.querySelectorAll(validationConfig.formSelector));
   formList.forEach((formElem) => {
-    buttonElement = formElem.querySelector(validationConfig.submitButtonSelector);
-    formElem.addEventListener('submit', (evt) => {
-      evt.preventDefault();
-    });
     setEventListeners(formElem, validationConfig.inputSelector, validationConfig.submitButtonSelector,
       validationConfig.inactiveButtonClass, validationConfig.errorClass);
   });
