@@ -1,11 +1,4 @@
-const validationConfig = {
-  formSelector: '.form',
-  inputSelector: '.form__input',
-  submitButtonSelector: '.form__save',
-  inactiveButtonClass: 'form__save_inactive',
-  inputErrorClass: 'form__input-error',
-  errorClass: 'form__input-error_active'
-};
+import { validationConfig } from './constants.js';
 
 class FormValidator {
   constructor(validationConfig, formInputSelector) {
@@ -46,14 +39,14 @@ class FormValidator {
     })
   }
 
-  _disableSubmitButton() {
+  disableSubmitButton() {
     this._buttonElement.setAttribute('disabled', true);
     this._buttonElement.classList.add(this._inactiveButtonClass);
   }
 
   _toggleButtonState = () => {
     if (this._hasInvalidInput()) {
-      this._disableSubmitButton();
+      this.disableSubmitButton();
     } else {
       this._buttonElement.classList.remove(this._inactiveButtonClass);
       this._buttonElement.removeAttribute('disabled');
@@ -78,11 +71,8 @@ class FormValidator {
   }
 
   _enableValidation = () => {
-    this._form.addEventListener('submit', (evt) => {
-      evt.preventDefault();
-    });
     this._setEventListeners();
   }
 }
 
-export { FormValidator, validationConfig }
+export { FormValidator }

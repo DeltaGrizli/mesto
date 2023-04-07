@@ -1,6 +1,7 @@
 import { initialCards } from './constants.js';
 import { Card } from './Card.js';
-import { FormValidator, validationConfig } from './FormValidator.js';
+import { FormValidator } from './FormValidator.js';
+import { validationConfig } from './constants.js';
 
 const
     profile = document.querySelector('.profile'),
@@ -31,28 +32,24 @@ const
 
     cardsSection = document.querySelector('.elements');
 
-
+    
 
 
 function initPhotoPopup(photoName, photoImg) {
     popupImage.src = photoImg;
     popupPhotoName.textContent = photoName;
     popupImage.alt = photoName;
-
+    openPopup(photoImage);
 }
 
 function openPopup(popup) {
     popup.classList.add('popup_opened');
     document.addEventListener('keydown', closePopupByEsc);
-    document.addEventListener('mousedown', closePopupByClick);
 }
 
 function closePopup(popup) {
-    const form = document.getElementById('edit').querySelector('.form')
     popup.classList.remove('popup_opened');
     document.removeEventListener('keydown', closePopupByEsc);
-    document.removeEventListener('mousedown', closePopupByClick);
-    form.reset();
 }
 
 function closePopupByEsc(evt) {
@@ -73,7 +70,7 @@ const formCards = new FormValidator(validationConfig, formAddCard);
 
 function createCard(data, cardSelector) {
     const card = new Card(data, cardSelector);
-    formCards._disableSubmitButton();
+    formCards.disableSubmitButton();
     return card._generateCard();
 }
 
@@ -99,7 +96,7 @@ function handleCardFormSubmit(evt) {
     }
     cardsSection.prepend(createCard(dataAdd, '#template'));
     closePopup(popupEdit);
-    formCards.reset();
+    formAddCard.reset();
 };
 
 buttonOpenEditProfilePopup.addEventListener('click', function () {
@@ -127,10 +124,18 @@ buttonCloseImagePopup.addEventListener('click', function () {
 
 formEditProfile.addEventListener('submit', handleProfileFormSubmit);
 
-formAddCard.addEventListener('submit', handleCardFormSubmit);
+formAddCard.addEventListener('submit',  handleCardFormSubmit);
+
+popupEdit.addEventListener('mousedown', closePopupByClick);
+
+popupEditProfile.addEventListener('mousedown', closePopupByClick);
+
+photoImage.addEventListener('mousedown', closePopupByClick);
 
 renderElements();
+
+
 formProfile._enableValidation();
 formCards._enableValidation();
 
-export { openPopup, initPhotoPopup }
+export { initPhotoPopup }

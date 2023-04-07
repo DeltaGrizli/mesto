@@ -1,12 +1,12 @@
-import { openPopup, initPhotoPopup } from './index.js'
+import { initPhotoPopup } from './index.js'
 
 export class Card {
-    constructor(data, cardSelector, element) {
+    constructor(data, cardSelector) {
         this._title = data.name;
         this._link = data.link;
         this._cardSelector = cardSelector;
         this._element = this._getTemplate();
-        this._elementsImage = this._element.querySelector('.elements__image');
+        
     }
 
     _getTemplate() {
@@ -19,11 +19,12 @@ export class Card {
     }
 
     _handleLikeClick() {
-        this._element.querySelector('.elements__like').classList.toggle('elements__like_active');
+        this._elementsLike.classList.toggle('elements__like_active');
     }
 
     _handleTrashClick() {
         this._element.remove();
+        this._element = null;
     }
 
     _createCard() {
@@ -35,13 +36,16 @@ export class Card {
     }
 
     _setEventListeners() {
+        this._elementsImage = this._element.querySelector('.elements__image');
+
+        this._elementsLike = this._element.querySelector('.elements__like');
+
         this._element.querySelector('.elements__like').addEventListener('click', this._handleLikeClick.bind(this));
 
         this._element.querySelector('.elements__trash').addEventListener('click', this._handleTrashClick.bind(this));
 
         this._element.querySelector('.elements__image').addEventListener('click', () => {
             initPhotoPopup(this._title, this._link);
-            openPopup(photoImage);
         });
     }
 
