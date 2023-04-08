@@ -29,9 +29,10 @@ const
     buttonCloseImagePopup = photoImage.querySelector('.popup__close'),
 
 
-    cardsSection = document.querySelector('.elements');
+    cardsSection = document.querySelector('.elements'),
 
-    
+    formProfile = new FormValidator(validationConfig, formEditProfile),
+    formCards = new FormValidator(validationConfig, formAddCard);
 
 
 function initPhotoPopup(photoName, photoImg) {
@@ -44,7 +45,6 @@ function initPhotoPopup(photoName, photoImg) {
 function openPopup(popup) {
     popup.classList.add('popup_opened');
     document.addEventListener('keydown', closePopupByEsc);
-    formCards.disableSubmitButton();
 }
 
 function closePopup(popup) {
@@ -64,9 +64,6 @@ function closePopupByClick(evt) {
         closePopup(evt.target);
     }
 };
-
-const formProfile = new FormValidator(validationConfig, formEditProfile);
-const formCards = new FormValidator(validationConfig, formAddCard);
 
 function createCard(data, cardSelector) {
     const card = new Card(data, cardSelector);
@@ -111,6 +108,7 @@ buttonCloseEditProfilePopup.addEventListener('click', function () {
 
 buttonOpenAddCardPopup.addEventListener('click', function () {
     openPopup(popupEdit);
+    formCards.disableSubmitButton();
 });
 
 buttonCloseAddCardPopup.addEventListener('click', function () {
