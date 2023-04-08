@@ -1,7 +1,6 @@
-import { initialCards } from './constants.js';
+import { initialCards, validationConfig } from './constants.js';
 import { Card } from './Card.js';
 import { FormValidator } from './FormValidator.js';
-import { validationConfig } from './constants.js';
 
 const
     profile = document.querySelector('.profile'),
@@ -45,6 +44,7 @@ function initPhotoPopup(photoName, photoImg) {
 function openPopup(popup) {
     popup.classList.add('popup_opened');
     document.addEventListener('keydown', closePopupByEsc);
+    formCards.disableSubmitButton();
 }
 
 function closePopup(popup) {
@@ -70,8 +70,7 @@ const formCards = new FormValidator(validationConfig, formAddCard);
 
 function createCard(data, cardSelector) {
     const card = new Card(data, cardSelector);
-    formCards.disableSubmitButton();
-    return card._generateCard();
+    return card.generateCard();
 }
 
 function renderElements() {
@@ -103,7 +102,7 @@ buttonOpenEditProfilePopup.addEventListener('click', function () {
     openPopup(popupEditProfile);
     profileEditTitle.value = profileName.textContent;
     profileEditSubtitle.value = profileProfession.textContent;
-    formProfile._resetError();
+    formProfile.resetError();
 });
 
 buttonCloseEditProfilePopup.addEventListener('click', function () {
@@ -135,7 +134,7 @@ photoImage.addEventListener('mousedown', closePopupByClick);
 renderElements();
 
 
-formProfile._enableValidation();
-formCards._enableValidation();
+formProfile.enableValidation();
+formCards.enableValidation();
 
 export { initPhotoPopup }

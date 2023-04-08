@@ -1,5 +1,3 @@
-import { validationConfig } from './constants.js';
-
 class FormValidator {
   constructor(validationConfig, formInputSelector) {
     this._formSelector = validationConfig.formSelector;
@@ -63,14 +61,14 @@ class FormValidator {
     });
   }
 
-  _resetError() {
+  resetError() {
     this._inputList.forEach((formInputElement) => {
       this._inputElement = formInputElement;
       this._hideInputError();
     });
   }
 
-  _enableValidation = () => {
+  enableValidation = () => {
     this._setEventListeners();
   }
 }

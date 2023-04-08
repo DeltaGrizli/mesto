@@ -49,7 +49,7 @@ export class Card {
         });
     }
 
-    _generateCard() {
+    generateCard() {
         this._setEventListeners();
         this._elementsImage.src = this._link;
         this._elementsImage.alt = 'фото';
