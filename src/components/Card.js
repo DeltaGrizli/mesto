@@ -1,5 +1,3 @@
-//import { initPhotoPopup } from '../pages/index.js'
-
 export default class Card {
     constructor(data, cardSelector, handleCardClick) {
         this._title = data.name;
@@ -9,7 +7,6 @@ export default class Card {
         this._handleClick = handleCardClick;
         this._cardImage = this._element.querySelector('.elements__image');
         this._elementsLike = this._element.querySelector('.elements__like');
-        //this._elementsImage = this._element.querySelector('.elements__image');
     }
 
     _getTemplate() {
@@ -39,7 +36,7 @@ export default class Card {
     }
 
     _setEventListeners() {
-        this._element.querySelector('.elements__like').addEventListener('click', this._handleLikeClick.bind(this));
+        this._elementsLike.addEventListener('click', this._handleLikeClick.bind(this));
 
         this._element.querySelector('.elements__trash').addEventListener('click', this._handleTrashClick.bind(this));
 

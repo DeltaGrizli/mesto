@@ -34,17 +34,16 @@ function createCard(data, cardSelector, cb) {
 }
 
 function handleProfileFormSubmit() {
-    userInfo.setUserInfo({
-        name: profileEditTitle.value,
-        job: profileEditSubtitle.value
-    })
+    const formValues = popupProfile.getInputValues();
+    userInfo.setUserInfo(formValues);
     popupProfile.close();
 }
 
 function handleCardFormSubmit() {
+    const formValues = popupEditt.getInputValues();
     const dataAdd = {
-        name: document.querySelector('#editTitle').value,
-        link: document.querySelector('#editSubtitle').value
+        name: formValues.name,
+        link: formValues.link
     };
 
     const cardAddElement = createCard(dataAdd, "#template", {
@@ -57,9 +56,9 @@ function handleCardFormSubmit() {
 }
 
 buttonOpenEditProfilePopup.addEventListener('click', function () {
-    const { name, job } = userInfo.getUserInfo();
-    profileEditTitle.value = name;
-    profileEditSubtitle.value = job;
+    const { title, subtitle } = userInfo.getUserInfo();
+    profileEditTitle.value = title;
+    profileEditSubtitle.value = subtitle;
     popupProfile.open();
     formProfile.resetError();
 });
