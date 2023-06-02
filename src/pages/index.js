@@ -1,7 +1,7 @@
 import './index.css'
 import { initialCards, profile, popupEditProfile, profileEditTitle, profileEditSubtitle,
     buttonOpenEditProfilePopup, buttonOpenAddCardPopup, popupEdit,
-    formAddCard, formEditProfile, buttonAvatarEdit, formEditAvatar validationConfig } from '../constants/constants.js';
+    formAddCard, formEditProfile, buttonAvatarEdit, formEditAvatar, validationConfig } from '../constants/constants.js';
 import Card from '../components/Card.js';
 import { FormValidator } from '../components/FormValidator.js';
 import Section from '../components/Section.js';
