@@ -43,3 +43,5 @@
 @import url(../blocks/form/__input/_active/form__input-error_active.css);
 @import url(../blocks/form/__save/_inactive/form__save_inactive.css);
 @import url(../blocks/form/__section/form__section.css);
+@import url(../blocks/profile/__content/profile__content.css);
+@import url(../blocks/elements/__container/_group/elements__container_group.css);

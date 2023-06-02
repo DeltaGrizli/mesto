@@ -13,11 +13,13 @@
   </header>
   <main class="content">
     <section class="profile">
-      <img class="profile__avatar" src="<%=require('./images/image.png')%>" alt="Аватар">
+      <botton type="button" class="profile__content>
+        <img class="profile__avatar" src="<%=require('./images/image.png')%>" alt="Аватар">
+      </botton>
       <div class="profile__info">
-        <h1 class="profile__title">Жак-Ив Кусто</h1>
+        <h1 class="profile__title"></h1>
         <button class="profile__button" type="button"></button>
-        <p class="profile__subtitle">Исследователь океана</p>
+        <p class="profile__subtitle"></p>
       </div>
       <button class="profile__add-button" type="button"></button>
     </section>
@@ -33,12 +35,12 @@
       <p class="popup__title">Редактировать профиль</p>
       <form name="popup__form" class="form" novalidate>
         <div class="form__section">
-          <input required type="text" name="title" placeholder="Имя"
+          <input required type="text" name="name" placeholder="Имя"
             class="form__input form__input_format_title" id="editProfileTitle" minlength="2" maxlength="40">
           <span class="form__input-error editProfileTitle-error"></span>
         </div>
         <div class="form__section">
-          <input required type="text" name="subtitle" placeholder="Профессия"
+          <input required type="text" name="about" placeholder="Профессия"
             class="form__input form__input_format_subtitle" id="editProfileSubtitle" minlength="2" maxlength="200">
           <span class="form__input-error editProfileSubtitle-error"></span>
         </div>
@@ -72,13 +74,37 @@
       <button type="button" aria-label="" class="popup__close"></button>
     </div>
   </div>
-  <template id="template">
+  <div class="popup" id="popupDeleteCard">
+    <div class="popup__container">
+        <p class="popup__title">Вы уверены?</p>
+        <button type="button" aria-label="Закрыть" class="popup__close"></button>
+        <button type="submit" aria-label="Вы уверены?" class="form__save">Да</button>
+    </div>
+  </div>
+  <div class="popup" id="popupEditAvatar">
+    <div class="popup__container">
+        <p class="popup__title">Обновить аватар</p>
+        <form name="popup__form" class="form" novalidate>
+            <div class="form__section">
+                <input type="url" name="avatar" placeholder="Ссылка на новый аватар" class="form__input"
+                       id="avatar" minlength="2" required>
+                <span class="form__input-error avatar-error"></span>
+            </div>
+            <button type="submit" aria-label="Вы уверены?" class="form__save">Сохранить</button>
+        </form>
+        <button type="button" aria-label="Закрыть" class="popup__close"></button>
+    </div>
+  </div>
+  <template class="template">
     <div class="elements__item">
       <button type="button" class="elements__trash"></button>
       <img class="elements__image" src=" " alt=" ">
       <div class="elements__container">
         <h2 class="elements__title"></h2>
-        <button type="button" class="elements__like"></button>
+        <div class="elements__container_group">
+          <button type="button" class="elements__like"></button>
+          <div class="elements__like_count">0</div>
+        </div>
       </div>
     </div>
   </template>
